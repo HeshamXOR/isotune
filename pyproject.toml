@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isotune"
+version = "0.1.0"
+description = "Hyperparameter search for gradient-boosted trees whose delivered model meets an inference-latency budget"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "HeshamXOR" }]
+keywords = ["automl", "hyperparameter-optimization", "xgboost", "lightgbm", "inference-latency", "mlops"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.23",
+    "scikit-learn>=1.2",
+]
+
+[project.optional-dependencies]
+xgboost = ["xgboost>=1.7"]
+lightgbm = ["lightgbm>=3.3"]
+dev = ["pytest>=7", "xgboost>=1.7", "lightgbm>=3.3"]
+
+[project.urls]
+Homepage = "https://github.com/HeshamXOR/isotune"
+Issues = "https://github.com/HeshamXOR/isotune/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
